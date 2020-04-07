@@ -6003,7 +6003,6 @@ snl	Saturday Night Live
 snm	say no more
 snog	kiss
 snogged	kissed
-so	significant other
 soa	service oriented architecture
 soab	son of a btch
 soad	system of a down

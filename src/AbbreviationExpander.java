@@ -7,19 +7,20 @@ import java.util.Scanner;
 
 public class AbbreviationExpander {
 
-    static ArrayList<String> englishDic ;
-    static ArrayList<String> lingoDic ;
-    static Scanner scanner;
-    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+    static ArrayList<String> englishDic ; // An array dictionary that stores the english dictionary
+    static ArrayList<String> lingoDic ; // An array dictionary that stores common lingo words / acronym words
+
+    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m"; // Green background code
+    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m"; // White background code
     public static final String RESET = "\033[0m";  // Text Reset
 
     public static void main(String[] args) {
 
-        // Initialize the ArrayList
+        // Initialize the ArrayLists
         englishDic = new ArrayList<>();
         lingoDic=  new ArrayList<>();
 
+        // Fill the english dictionary
         try {
             BufferedReader br = new BufferedReader(new FileReader("englishDict.txt"));
             String line = br.readLine();
@@ -28,6 +29,7 @@ public class AbbreviationExpander {
                 line = br.readLine();
             }
 
+            // Fill the lingo dictionary
             br = new BufferedReader(new FileReader("lingo.txt"));
             line = br.readLine();
             while (line != null) {
@@ -42,48 +44,54 @@ public class AbbreviationExpander {
             e.printStackTrace();
         }
 
-        // Adding abbreviations to the map
-
-        // Initializing the scanner
-
         try {
             System.out.print("Enter the file name with extension : ");
-            Scanner input = new Scanner(System.in);
-            File file = new File(input.nextLine());
 
+            Scanner input = new Scanner(System.in); // Initializing the scanner
+            File file = new File(input.nextLine());
             input = new Scanner(file);
 
-            String[] enteredTextArr;
-            String[] splitArr;
-            String[] splitTwitterArr;
+            String[] enteredTextArr; // Array that stores the split from currrent file read
+            String[] splitArr; // Array that stores the split from english or lingo dictionary
+            String[] splitTwitterArr; // Array that stores the split from twitter comment
             boolean flag = true;
-
 
             while (input.hasNextLine()) {
                 String line = input.nextLine();
                 enteredTextArr = line.split(",",5);
+                // Split first read line from file into components as [topic, feedback, id, date, tweet comment]
 
+                /* If the tweet comment is faulty or the line read isn't a tweet record then skip
+
+                 */
                 try {
                     splitTwitterArr = enteredTextArr[4].substring(1, enteredTextArr[4].length() - 1).split(" ");
+                    // Split the tweet comment into array elements on spaces
                 }
                 catch (Exception e){
                     continue;
                 }
 
                 for (int i = 0; i < splitTwitterArr.length; i++) {
+                    // Go through the tweet comment split array on each word
                     for (int j = 0; j < englishDic.size(); j++) {
                         splitArr = englishDic.get(j).split("\\s+", 2);
+                        // Grab each word from English dictionary and compare
                         if (splitArr[0].equalsIgnoreCase(splitTwitterArr[i])) {
                             // displaying the translation
                             System.out.print( ANSI_WHITE_BACKGROUND + splitArr[1] + " ");
                             System.out.print(RESET);
+
+                            // If the word was in the english dictionary its not an acronym
                             flag = false;
                             break;
                         }
                     }
                     if (flag) {
+                        // Check if word is in acronym/lingo dictionary
                         for (int k = 0; k < lingoDic.size(); k++) {
                             splitArr = lingoDic.get(k).split("\\s+", 2);
+                            // Grab each word from English dictionary and compare
                             if (splitArr[0].equalsIgnoreCase(splitTwitterArr[i])) {
                                 // displaying the translation
                                 System.out.print(ANSI_GREEN_BACKGROUND +splitArr[1] + " ");
@@ -94,9 +102,11 @@ public class AbbreviationExpander {
                         }
                     }
                     if (flag) {
+                        // If word is neither in english dictionary and acronym dictionary then it must be a typo
                         System.out.print(RESET+splitTwitterArr[i] + " ");
                     }
                     flag = true;
+                    // Reset flag for next iteration
                 }
                 System.out.println();
             }

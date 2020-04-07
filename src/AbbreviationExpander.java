@@ -2,10 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class AbbreviationExpander {
@@ -64,9 +61,15 @@ public class AbbreviationExpander {
 
             while (input.hasNextLine()) {
                 String line = input.nextLine();
-
                 enteredTextArr = line.split(",",5);
-                splitTwitterArr = enteredTextArr[4].substring(1,enteredTextArr[4].length()-1).split(" ");
+
+                try {
+                    splitTwitterArr = enteredTextArr[4].substring(1, enteredTextArr[4].length() - 1).split(" ");
+                }
+                catch (Exception e){
+                    continue;
+                }
+
                 for (int i = 0; i < splitTwitterArr.length; i++) {
                     for (int j = 0; j < englishDic.size(); j++) {
                         splitArr = englishDic.get(j).split("\\s+", 2);
@@ -103,7 +106,6 @@ public class AbbreviationExpander {
             System.out.print("Something went wrong while processing file");
             e.printStackTrace();
         }
-
         // Checking if the map contains the entered abbreviation
     }
 }

@@ -62,7 +62,13 @@ public class AbbreviationExpander_Improved {
             while (input.hasNextLine()) {
                 String line = input.nextLine();
                 enteredTextArr = line.split(",",5);
-                splitTwitterArr = enteredTextArr[4].substring(1,enteredTextArr[4].length()-1).split(" ");
+
+                try {
+                    splitTwitterArr = enteredTextArr[4].substring(1, enteredTextArr[4].length() - 1).split(" ");
+                }
+                catch (Exception e){
+                   continue;
+                }
                 // Checking if the map contains the entered abbreviation
 
                 for(int i = 0 ; i < splitTwitterArr.length ; i++ ) {

@@ -27814,7 +27814,7 @@ hashed	hash
 hashes	hash
 hashing	hash
 hashish	hashish
-hasn't	have not
+hasn't	has not
 hasp	hasp
 hasps	hasp
 hassle	hassle
@@ -27916,8 +27916,9 @@ hazy	hazy
 he	he
 he'd	he would
 he'll	he will
-he's	he be
+he's	he is
 head	head
+would've  would have
 head-on	head-on
 headache	headache
 headaches	headache
@@ -32731,7 +32732,7 @@ isle	isle
 isles	isle
 islet	islet
 islets	islet
-isn't	be not
+isn't	is not
 isobar	isobar
 isobars	isobar
 isochrone	isochrone

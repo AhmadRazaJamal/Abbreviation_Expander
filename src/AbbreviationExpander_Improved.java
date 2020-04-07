@@ -6,13 +6,15 @@ import java.util.Scanner;
 
 public class AbbreviationExpander_Improved {
 
-    static HashMap<String, String> abbrMap;
+    static HashMap<String, String> englishDicMap;
+    static HashMap<String, String> lingoDicMap;
     static Scanner scanner;
 
     public static void main(String[] args) {
 
         // Initialize the HashMap
-        abbrMap = new HashMap<String, String>();
+        englishDicMap = new HashMap<String, String>();
+        lingoDicMap = new HashMap<String, String>();
 
 
         // Adding a few abbreviations to the map
@@ -23,7 +25,7 @@ public class AbbreviationExpander_Improved {
             String line = br.readLine();
             while (line != null) {
                     splitArr = line.split("\\s+", 2);
-                    abbrMap.put(splitArr[0], splitArr[1]);
+                    englishDicMap.put(splitArr[0], splitArr[1]);
                     line = br.readLine();
             }
 
@@ -31,7 +33,7 @@ public class AbbreviationExpander_Improved {
             line = br.readLine();
             while (line != null) {
                     splitArr = line.split("\\s+", 2);
-                    abbrMap.put(splitArr[0], splitArr[1]);
+                    lingoDicMap.put(splitArr[0], splitArr[1]);
                     line = br.readLine();
             }
 
@@ -56,14 +58,16 @@ public class AbbreviationExpander_Improved {
         // Checking if the map contains the entered abbreviation
 
         for(int i = 0 ; i < enteredTextArr.length ; i++ ) {
-            if (abbrMap.containsKey(enteredTextArr[i])) {
-
+            if (englishDicMap.containsKey(enteredTextArr[i].toLowerCase())) {
                 // displaying the translation
-                System.out.print(abbrMap.get(enteredTextArr[i])+" ");
+                System.out.print(englishDicMap.get(enteredTextArr[i].toLowerCase())+" ");
             }
-            else
+            else if(lingoDicMap.containsKey(enteredTextArr[i].toLowerCase()))
             {
-                System.out.print(enteredTextArr[i]+" ") ;
+                System.out.print(lingoDicMap.get(enteredTextArr[i])+" ");
+            }
+            else {
+                System.out.print(enteredTextArr[i]);
             }
         }
 

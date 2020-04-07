@@ -3934,7 +3934,6 @@ loflmao	laying on floor laughing my ass off
 loi	laughing on the inside
 lok	lots of kisses
 lol	laughing out loud
-lol wuss	laugh out loud with unintentional snort sound
 lol'd	laughed out loud
 lol@u	Laugh out loud at you
 lol2u	Laugh out loud to you
@@ -4451,9 +4450,6 @@ narr	narrative
 narrat	narrative
 nascar	non-athletic sport centered around rednecks
 nat	natural
-nat hist	natural history
-nat philos	natural philosophy
-nat sci	natural science
 natch	naturally
 natm	not at the minute
 nato	no action, talk only

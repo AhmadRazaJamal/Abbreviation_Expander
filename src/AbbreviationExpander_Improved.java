@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -14,10 +17,30 @@ public class AbbreviationExpander_Improved {
 
         // Adding a few abbreviations to the map
 
-        abbrMap.put("LOL", "Laughing out loud");
-        abbrMap.put("IDK", "I don't know");
-        abbrMap.put("BFF", "Best friends forever");
-        abbrMap.put("IMHO", "In my humble opinion");
+        try {
+            String[] splitArr ;
+            BufferedReader br = new BufferedReader(new FileReader("englishDict.txt"));
+            String line = br.readLine();
+            while (line != null) {
+                    splitArr = line.split("\\s+", 2);
+                    abbrMap.put(splitArr[0], splitArr[1]);
+                    line = br.readLine();
+            }
+
+            br = new BufferedReader(new FileReader("lingo.txt"));
+            line = br.readLine();
+            while (line != null) {
+                    splitArr = line.split("\\s+", 2);
+                    abbrMap.put(splitArr[0], splitArr[1]);
+                    line = br.readLine();
+            }
+
+            br.close();
+        }
+        catch (IOException e){
+            System.out.print("Something went wrong while processing file");
+            e.printStackTrace();
+        }
 
 
         // Initializing the scanner
@@ -29,15 +52,14 @@ public class AbbreviationExpander_Improved {
         String input = scanner.nextLine();
 
         String[] enteredTextArr = input.split(" ");
-
+        boolean flag = true ;
         // Checking if the map contains the entered abbreviation
 
         for(int i = 0 ; i < enteredTextArr.length ; i++ ) {
-            if (abbrMap.containsKey(enteredTextArr[i].toUpperCase())) {
+            if (abbrMap.containsKey(enteredTextArr[i])) {
 
                 // displaying the translation
-                System.out.print(abbrMap.get(enteredTextArr[i].toUpperCase())+" ");
-
+                System.out.print(abbrMap.get(enteredTextArr[i])+" ");
             }
             else
             {

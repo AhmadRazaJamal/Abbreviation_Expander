@@ -1,10 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class AbbreviationExpander {
@@ -18,15 +15,8 @@ public class AbbreviationExpander {
             abbrDic = new ArrayList<>();
 
             try {
-                BufferedReader br = new BufferedReader(new FileReader("englishDict.txt"));
+                BufferedReader br = new BufferedReader(new FileReader("twitterSlang.txt"));
                 String line = br.readLine();
-                while (line != null) {
-                    abbrDic.add(line);
-                    line = br.readLine();
-                }
-
-                 br = new BufferedReader(new FileReader("lingo.txt"));
-                line = br.readLine();
                 while (line != null) {
                     abbrDic.add(line);
                     line = br.readLine();
@@ -56,15 +46,16 @@ public class AbbreviationExpander {
 
             for(int i = 0 ; i < enteredTextArr.length ; i++ ) {
                 for(int j = 0 ; j < abbrDic.size() ; j++){
-                    splitArr = abbrDic.get(j).split("\\s+",2);
-                    if (splitArr[0].equalsIgnoreCase(enteredTextArr[i])) {
+                    splitArr = abbrDic.get(j).split("-",3);
+                    System.out.println(splitArr[1]);
+                    if (splitArr[0].equals(enteredTextArr[i])) {
                         // displaying the translation
-                        System.out.print(splitArr[1]+" ");
+                       // System.out.print(splitArr[1]+" ");
                         flag = false ;
                         break;
                     }
                 }
-                if(flag == true) {
+                if(flag) {
                     System.out.print(enteredTextArr[i] + " ");
                 }
                 flag = true ;

@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,6 +13,9 @@ public class AbbreviationExpander {
     static ArrayList<String> englishDic ;
     static ArrayList<String> lingoDic ;
     static Scanner scanner;
+    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+    public static final String RESET = "\033[0m";  // Text Reset
 
     public static void main(String[] args) {
 
@@ -44,43 +48,62 @@ public class AbbreviationExpander {
         // Adding abbreviations to the map
 
         // Initializing the scanner
-        scanner = new Scanner(System.in);
 
-        System.out.println("Enter text: ");
-        // Getting input and converting to upper case
+        try {
+            System.out.print("Enter the file name with extension : ");
+            Scanner input = new Scanner(System.in);
+            File file = new File(input.nextLine());
 
-        String input = scanner.nextLine();
+            input = new Scanner(file);
 
-        String[] enteredTextArr = input.split(" ");
-        String[] splitArr ;
-        boolean flag = true ;
-        // Checking if the map contains the entered abbreviation
+            String[] enteredTextArr;
+            String[] splitArr;
+            String[] splitTwitterArr;
+            boolean flag = true;
 
-        for(int i = 0 ; i < enteredTextArr.length ; i++ ) {
-            for(int j = 0 ; j < englishDic.size() ; j++){
-                splitArr = englishDic.get(j).split("\\s+",2);
-                if (splitArr[0].equalsIgnoreCase(enteredTextArr[i])) {
-                    // displaying the translation
-                    System.out.print(splitArr[1]+" ");
-                    flag = false ;
-                    break;
-                }
-            }
-            if(flag){
-                for(int k = 0 ; k < lingoDic.size() ; k++){
-                    splitArr = lingoDic.get(k).split("\\s+",2);
-                    if (splitArr[0].equalsIgnoreCase(enteredTextArr[i])) {
-                        // displaying the translation
-                        System.out.print(splitArr[1]+" ");
-                        flag = false ;
-                        break;
+
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+
+                enteredTextArr = line.split(",",5);
+                splitTwitterArr = enteredTextArr[4].substring(1,enteredTextArr[4].length()-1).split(" ");
+                for (int i = 0; i < splitTwitterArr.length; i++) {
+                    for (int j = 0; j < englishDic.size(); j++) {
+                        splitArr = englishDic.get(j).split("\\s+", 2);
+                        if (splitArr[0].equalsIgnoreCase(splitTwitterArr[i])) {
+                            // displaying the translation
+                            System.out.print( ANSI_WHITE_BACKGROUND + splitArr[1] + " ");
+                            System.out.print(RESET);
+                            flag = false;
+                            break;
+                        }
                     }
+                    if (flag) {
+                        for (int k = 0; k < lingoDic.size(); k++) {
+                            splitArr = lingoDic.get(k).split("\\s+", 2);
+                            if (splitArr[0].equalsIgnoreCase(splitTwitterArr[i])) {
+                                // displaying the translation
+                                System.out.print(ANSI_GREEN_BACKGROUND +splitArr[1] + " ");
+                                System.out.print(RESET);
+                                flag = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (flag) {
+                        System.out.print(RESET+splitTwitterArr[i] + " ");
+                    }
+                    flag = true;
                 }
+                System.out.println();
             }
-            if(flag) {
-                System.out.print(enteredTextArr[i] + " ");
-            }
-            flag = true ;
+            input.close();
         }
+        catch (IOException e){
+            System.out.print("Something went wrong while processing file");
+            e.printStackTrace();
+        }
+
+        // Checking if the map contains the entered abbreviation
     }
 }

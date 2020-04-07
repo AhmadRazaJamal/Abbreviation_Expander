@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,6 +10,9 @@ public class AbbreviationExpander_Improved {
     static HashMap<String, String> englishDicMap;
     static HashMap<String, String> lingoDicMap;
     static Scanner scanner;
+    public static final String ANSI_GREEN_BACKGROUND = "\u001B[42m";
+    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+    public static final String RESET = "\033[0m";  // Text Reset
 
     public static void main(String[] args) {
 
@@ -44,32 +48,46 @@ public class AbbreviationExpander_Improved {
             e.printStackTrace();
         }
 
+        try {
+            System.out.print("Enter the file name with extension : ");
 
-        // Initializing the scanner
-        scanner = new Scanner(System.in);
+            // Initializing the scanner
+            Scanner input = new Scanner(System.in);
+            File file = new File(input.nextLine());
 
-        System.out.println("Enter text: ");
-        // Getting input and converting to upper case
+            input = new Scanner(file);
+            String[] enteredTextArr ;
+            String[] splitTwitterArr;
 
-        String input = scanner.nextLine();
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                enteredTextArr = line.split(",",5);
+                splitTwitterArr = enteredTextArr[4].substring(1,enteredTextArr[4].length()-1).split(" ");
+                // Checking if the map contains the entered abbreviation
 
-        String[] enteredTextArr = input.split(" ");
-        boolean flag = true ;
-        // Checking if the map contains the entered abbreviation
-
-        for(int i = 0 ; i < enteredTextArr.length ; i++ ) {
-            if (englishDicMap.containsKey(enteredTextArr[i].toLowerCase())) {
-                // displaying the translation
-                System.out.print(englishDicMap.get(enteredTextArr[i].toLowerCase())+" ");
+                for(int i = 0 ; i < splitTwitterArr.length ; i++ ) {
+                    if (englishDicMap.containsKey(splitTwitterArr[i].toLowerCase())) {
+                     // displaying the translation
+                     System.out.print(ANSI_WHITE_BACKGROUND + englishDicMap.get(splitTwitterArr[i].toLowerCase())+" ");
+                     System.out.print(RESET);
+                    }
+                    else if(lingoDicMap.containsKey(splitTwitterArr[i].toLowerCase()))
+                    {
+                     System.out.print(ANSI_GREEN_BACKGROUND+lingoDicMap.get(splitTwitterArr[i].toLowerCase())+" ");
+                     System.out.print(RESET);
+                    }
+                    else {
+                    System.out.print(RESET+splitTwitterArr[i]+" ");
+                }
             }
-            else if(lingoDicMap.containsKey(enteredTextArr[i].toLowerCase()))
-            {
-                System.out.print(lingoDicMap.get(enteredTextArr[i])+" ");
-            }
-            else {
-                System.out.print(enteredTextArr[i]);
-            }
+            System.out.println();
         }
+        input.close();
+    }
+        catch (IOException e){
+        System.out.print("Something went wrong while processing file");
+        e.printStackTrace();
+    }
 
     }
 }

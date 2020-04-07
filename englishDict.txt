@@ -1338,7 +1338,6 @@ ah	ah
 ahead	ahead
 ahistorical	ahistorical
 ahs	ah
-ai	be
 aid	aid
 aide	aide
 aide-de-camp	aide-de-camp
@@ -1808,7 +1807,6 @@ alveolar	alveolar
 alveoli	alveolus
 alveolus	alveolus
 always	always
-am	be
 amalgam	amalgam
 amalgamate	amalgamate
 amalgamated	amalgamate
@@ -3138,13 +3136,12 @@ ardors	ardor
 ardour	ardour
 ardours	ardour
 arduous	arduous
-are	be
 area	area
 area-wide	area-wide
 areae	area
 areal	areal
 areas	area
-aren't	be not
+aren't	are not
 arena	arena
 arenas	arena
 argent	argent
@@ -5166,7 +5163,7 @@ beehives	beehive
 beekeeper	beekeeper
 beekeepers	beekeeper
 beekeeping	beekeeping
-been	be
+been	been
 beep	beep
 beeped	beep
 beeper	beeper
@@ -5279,7 +5276,7 @@ behoved	behove
 behoves	behove
 behoving	behove
 beige	beige
-being	be
+being	being
 beings	being
 belarusian	belarusian
 belarusians	belarusians
@@ -27300,7 +27297,7 @@ hackney	hackney
 hackneyed	hackneyed
 hackneys	hackney
 hacks	hack
-had	have
+had	had
 haddock	haddock
 haddocks	haddock
 hadn't	had not
@@ -27806,7 +27803,7 @@ harvestings	harvesting
 harvestman	harvestman
 harvestmen	harvestman
 harvests	harvest
-has	have
+has	has
 has-been	has-been
 has-beens	has-been
 hash	hash
@@ -29214,7 +29211,7 @@ hoverfly	hoverfly
 hovering	hover
 hovers	hover
 how	how
-how's	how be
+how's	how is
 howdy	howdy
 however	however
 howitzer	howitzer
@@ -29793,7 +29790,7 @@ hysteroscopy	hysteroscopy
 i	i
 i'd	i would
 i'll	i will
-i'm	i be
+i'm	i am
 i've	i have
 i-kiribati	i-kiribati
 iambic	iambic
@@ -32811,7 +32808,7 @@ istrian	istrian
 it	it
 it'd	it would
 it'll	it will
-it's	it be
+it's	it is
 italian	italian
 italians	italians
 italic	italic
@@ -57057,7 +57054,7 @@ shaykhs	shaykh
 she	she
 she'd	she would
 she'll	she will
-she's	she be
+she's	she is
 sheaf	sheaf
 shear	shear
 sheared	shear
@@ -63774,7 +63771,7 @@ thars	thar
 that	that
 that'd	that would
 that'll	that will
-that's	that be
+that's	that is
 thatch	thatch
 thatched	thatch
 thatcher	thatcher
@@ -63854,7 +63851,7 @@ therapy	therapy
 there	there
 there'd	there would
 there'll	there will
-there's	there be
+there's	there is
 thereabouts	thereabouts
 thereafter	thereafter
 thereby	thereby
@@ -63917,7 +63914,7 @@ thetas	theta
 they	they
 they'd	they would
 they'll	they will
-they're	they be
+they're	they are
 they've	they have
 thiamin	thiamin
 thiamine	thiamine
@@ -69355,7 +69352,7 @@ wartime	wartime
 warts	wart
 warty	warty
 wary	wary
-was	be
+was	was
 wasabi	wasabi
 wasabis	wasabi
 wash	wash
@@ -69541,7 +69538,7 @@ waywardness	waywardness
 we	we
 we'd	we would
 we'll	we will
-we're	we be
+we're	we are
 we've	we have
 weak	weak
 weak-minded	weak-minded
@@ -69809,7 +69806,7 @@ wends	wend
 wens	wen
 went	go
 wept	weep
-were	be
+were	were
 weren't	were not
 werewolf	werewolf
 werewolves	werewolf
@@ -69853,7 +69850,7 @@ wharf	wharf
 wharfs	wharf
 wharves	wharf
 what	what
-what's	what be
+what's	what is
 whatever	whatever
 whatsoever	whatsoever
 wheat	wheat
@@ -69899,7 +69896,7 @@ when	when
 whence	whence
 whenever	whenever
 where	where
-where's	where be
+where's	where is
 whereabouts	whereabouts
 whereas	whereas
 whereat	whereat
@@ -70055,8 +70052,8 @@ whizzing	whiz
 who	who
 who'd	who would
 who'll	who will
-who're	who be
-who's	who be
+who're	who are
+who's	who is
 who've	who have
 whoever	whoever
 whole	whole
@@ -70872,7 +70869,7 @@ yorkers	yorker
 you	you
 you'd	you would
 you'll	you will
-you're	you be
+you're	you are
 you've	you have
 young	young
 younger	young

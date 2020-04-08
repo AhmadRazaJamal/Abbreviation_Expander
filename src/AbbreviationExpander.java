@@ -35,6 +35,7 @@ public class AbbreviationExpander {
                 e.printStackTrace();
             }
 
+<<<<<<< Updated upstream
              // Adding abbreviations to the map
 
             // Initializing the scanner
@@ -60,6 +61,77 @@ public class AbbreviationExpander {
                        // System.out.print(splitArr[1]+" ");
                         flag = false ;
                         break;
+=======
+            br.close();
+        }
+        catch (IOException e){
+            System.out.print("Something went wrong while processing file");
+            e.printStackTrace();
+        }
+
+        try {
+            System.out.print("Enter the file name with extension : ");
+
+            Scanner input = new Scanner(System.in); // Initializing the scanner
+            File file = new File(input.nextLine());
+            input = new Scanner(file);
+
+            double t1 = System.currentTimeMillis(); // Get some time values || Start point
+
+            String[] enteredTextArr; // Array that stores the split from currrent file read
+            String[] splitArr; // Array that stores the split from english or lingo dictionary
+            String[] splitTwitterArr; // Array that stores the split from twitter comment
+            boolean flag = true;
+
+            while (input.hasNextLine()) {
+                String line = input.nextLine();
+                enteredTextArr = line.split(",",5);
+                // Split first read line from file into components as [topic, feedback, id, date, tweet comment]
+
+                /* If the tweet comment is faulty or the line read isn't a tweet record then skip
+
+                 */
+                try {
+                    splitTwitterArr = enteredTextArr[4].substring(1, enteredTextArr[4].length() - 1).split(" ");
+                    // Split the tweet comment into array elements on spaces
+                }
+                catch (Exception e){
+                    continue;
+                }
+
+                for (int i = 0; i < splitTwitterArr.length; i++) {
+                    // Go through the tweet comment split array on each word
+                    for (int j = 0; j < englishDic.size(); j++) {
+                        splitArr = englishDic.get(j).split("\\s+", 2);
+                        // Grab each word from English dictionary and compare
+                        if (splitArr[0].equalsIgnoreCase(splitTwitterArr[i])) {
+                            // displaying the translation
+                            System.out.print( ANSI_WHITE_BACKGROUND + splitArr[1] + " ");
+                            System.out.print(RESET);
+
+                            // If the word was in the english dictionary its not an acronym
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag) {
+                        // Check if word is in acronym/lingo dictionary
+                        for (int k = 0; k < lingoDic.size(); k++) {
+                            splitArr = lingoDic.get(k).split("\\s+", 2);
+                            // Grab each word from English dictionary and compare
+                            if (splitArr[0].equalsIgnoreCase(splitTwitterArr[i])) {
+                                // displaying the translation
+                                System.out.print(ANSI_GREEN_BACKGROUND +splitArr[1] + " ");
+                                System.out.print(RESET);
+                                flag = false;
+                                break;
+                            }
+                        }
+                    }
+                    if (flag) {
+                        // If word is neither in english dictionary and acronym dictionary then it must be a typo
+                        System.out.print(RESET+splitTwitterArr[i] + " ");
+>>>>>>> Stashed changes
                     }
                 }
                 if(flag) {
@@ -67,7 +139,22 @@ public class AbbreviationExpander {
                 }
                 flag = true ;
             }
+<<<<<<< Updated upstream
             System.out.println();
+=======
+
+            input.close();
+
+            double t2 = System.currentTimeMillis();
+            double totalTime = t2-t1;
+            System.out.println();
+            System.out.println(totalTime);
+
+        }
+        catch (IOException e){
+            System.out.print("Something went wrong while processing file");
+            e.printStackTrace();
+>>>>>>> Stashed changes
         }
             double t2 = System.currentTimeMillis(); //End Point
             double totalTime = t2-t1; //Total Time taken

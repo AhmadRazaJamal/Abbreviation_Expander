@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/* Please use data sets provided and read readme file
+
+ */
 public class AbbreviationExpander_Improved {
 
     static HashMap<String, String> englishDicMap; // A Hashmap dictionary that stores the english dictionary
@@ -49,7 +52,8 @@ public class AbbreviationExpander_Improved {
         }
 
         try {
-            System.out.print("Enter the file name with extension : ");
+            System.out.println("Enter the file name with extension : ");
+            System.out.println("[To run millionTweet.txt, run AbbreviationExpander_million class and read README file] ");
 
             // Initializing the scanner
             Scanner input = new Scanner(System.in);

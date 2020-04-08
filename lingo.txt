@@ -1656,7 +1656,6 @@ e afr	East Africa(n)
 e angl	East Anglia(n)
 e anglian	East Anglian
 e ind	East Indies, East Indian
-e midl	east midland (dialect)
 e-ok	Electronically OK
 e.g.	example
 e123	easy as one, two, three
@@ -5394,7 +5393,6 @@ pyt	pretty young thing
 pz	peace
 pzled	puzzled
 q	queue
-q eliz	Queen Elizabeth
 q2c	quick to cum
 q33r	Queer
 q4u	question for you
@@ -5799,7 +5797,6 @@ sdf^	shut da fuck up
 sdfb	smoke dope fuck bitches
 sdk	Software Development Kit
 sdlc	Software Development Life Cycle
-se	south-east, south-eastern
 sec	second
 secks	sex
 secksea	Sexy
@@ -7546,7 +7543,6 @@ yaf	you're a fag
 yafi	you're a fucking idiot
 yafiygi	you asked for it you got it
 yag	you are gay
-yahoo	you always have other options
 yajwd	you ain't just whistling dixie
 yall	you all
 yaotm	yet another off topic message

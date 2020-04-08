@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/* Please use data sets provided and read readme file
+
+ */
 public class AbbreviationExpander {
 
     static ArrayList<String> englishDic ; // An array dictionary that stores the english dictionary
@@ -45,7 +48,8 @@ public class AbbreviationExpander {
         }
 
         try {
-            System.out.print("Enter the file name with extension : ");
+            System.out.println("Enter the file name with extension : ");
+            System.out.println("[To run millionTweet.txt, run AbbreviationExpander_million class and read README file] ");
 
             Scanner input = new Scanner(System.in); // Initializing the scanner
             File file = new File(input.nextLine());

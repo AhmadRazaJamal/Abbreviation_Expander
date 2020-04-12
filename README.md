@@ -29,10 +29,6 @@ The millionTweet.txt being a different formatting doesn't work for Abbreviation 
 
 <img src="https://github.com/AhmadRazaJamal/AbbreviationExpander/blob/master/AlgorithmB.png">
 
-### Sample Output
-
-<img src="https://github.com/AhmadRazaJamal/AbbreviationExpander/blob/master/sampleOutput.png">
-
 ### Input
 
 Both the implementations use English Dictionary and Lingo Dictionary obtained from an online open source 

@@ -23,16 +23,20 @@ Work for all cases.
 
 #### Important ! 
 
-The millionTweet.txt being a different formatting doesn't work for Abbreviation Expander Improved, use on the third class 
+The millionTweet.txt being a different formatting doesn't work for Abbreviation Expander Improved, use on the third class
 
-### Input :
+### Pseudocode for Improved Implementation 
+
+<img src="https://github.com/AhmadRazaJamal/AbbreviationExpander/blob/master/AlgorithmB.png">
+
+### Input
 
 Both the implementations use English Dictionary and Lingo Dictionary obtained from an online open source 
 
 Use the input data sets provided as it has been particularly curated for this program as we needed
 to filter through the CSV files for multiple tweets. It should work for other documents too, but would need tweaking.
 
-### Output:
+### Output 
 
 The output is displayed into the console where the "GREEN" highlighted text represents slang or lingo expansions where as "WHITE" highlighted text represents replacement from dictionary for improved data mining detection. The 
 "UN HIGHLIGHTED" text represents texts that couldn't be found in either dictionaries and might be typos etc

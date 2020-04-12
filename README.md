@@ -28,6 +28,7 @@ The millionTweet.txt being a different formatting doesn't work for Abbreviation 
 ### Pseudocode for Improved Implementation 
 
 <img src="https://github.com/AhmadRazaJamal/AbbreviationExpander/blob/master/AlgorithmB.png">
+
 ### Input
 
 Both the implementations use English Dictionary and Lingo Dictionary obtained from an online open source 
